@@ -1,0 +1,5 @@
+TrooperTransport, C130, 600, 3500, 20000000
+Fighter, F35, 2500, 4000, 57000000, air-sea
+Fighter, F18, 2200, 4000, 42000000, air-air
+Recon, P8, 1500, 5000, 45000000, landscape imagery sensors
+Recon, P3, 1300, 3500, 37000000, big ears working

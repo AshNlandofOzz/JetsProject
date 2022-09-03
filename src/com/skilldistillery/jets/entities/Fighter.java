@@ -1,9 +1,12 @@
 package com.skilldistillery.jets.entities;
 
 public class Fighter extends Jet implements BattleReady {
+
+
+	
 	private String weaponsLoadOut;
 
-	public Fighter(String model, double speed, int range, long price, String weaponsLoadOut) {
+	public Fighter(String model, double speed, double range, double price, String weaponsLoadOut) {
 		super(model, speed, range, price);
 		this.weaponsLoadOut = weaponsLoadOut;
 	}
@@ -25,5 +28,6 @@ public class Fighter extends Jet implements BattleReady {
 	public void weaponryTargeted() {
 		System.out.println("Locked on to target with loadout.");	
 	}
+	
 
 }

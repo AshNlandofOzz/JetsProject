@@ -3,13 +3,12 @@ package com.skilldistillery.jets.entities;
 public abstract class Jet {
 	private String model;
 	private double speed;
-	private int range;
-	private long price;
+	private double range;
+	private double price;
 
 	
-	public void fly(Jet j) {
-		System.out.println(j.toString());
-		System.out.println("The amount of flight time in hours is: " + calculateRange(j));
+	public void fly() {
+		System.out.println(toString() + "The amount of flight time in hours is: " + calculateRange());
 	}
 	
 	public String getModel() {
@@ -28,32 +27,42 @@ public abstract class Jet {
 		this.speed = speed;
 	}
 
-	public int getRange() {
+	public double getRange() {
 		return range;
 	}
 
-	public void setRange(int range) {
+	public void setRange(double range) {
 		this.range = range;
 	}
 
-	public long getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(long price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
-	public Jet(String model, double speed, int range, long price) {
-		
+	public Jet(String model, double speed, double range, double price) {
+		this.model = model;
+		this.speed = speed;
+		this.range = range;
+		this.price = price;
 }
+	public Jet() {
+		
+	}
 
 
+
+	
+
+	@Override
 	public String toString() {
 		return "Jet [model=" + model + ", speed=" + speed + ", range=" + range + ", price=" + price + "]";
 	}
-	
-	public double calculateRange (Jet j) {
+
+	public double calculateRange () {
 		double totalRange = this.range / this.speed;
 		return totalRange;
 		

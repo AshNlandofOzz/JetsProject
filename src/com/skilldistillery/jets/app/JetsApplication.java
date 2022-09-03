@@ -4,98 +4,139 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
+import com.skilldistillery.jets.entities.AirField;
+import com.skilldistillery.jets.entities.Fighter;
+import com.skilldistillery.jets.entities.Recon;
+import com.skilldistillery.jets.entities.TroopTransport;
+import com.skilldistillery.jets.entities.Jet;
 
 public class JetsApplication {
+	private AirField myAirField = new AirField();
+	List<Jet> currentJets = myAirField.getAirfield();
+	Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		JetsApplication thisJetsApplication = new JetsApplication();
-		thisJetsApplication.readFromFile("jets.txt");
+		thisJetsApplication.launch();
 	}
-		
-//		Scanner scan = new Scanner(System.in);
-//		int option = 0;
-//		while (option != 9) {
-//			System.out.println("Please select an option: ");
-//			thisJetsApplication.MainMenu();
-//			option = scan.nextInt();
-//			switch (option) {
-//			case 1:
-//				
-//				break;
-//			case 2:
-//				//thisJetsApplication.flyAllJets();
-//				break;
-//			case 3:
-//				//thisJetsApplication.fastestJest();
-//				break;
-//			case 4:
-//				
-//				break;
-//			case 5:
-//				
-//				break;
-//			case 6:
-//				
-//				break;
-//			case 7:
-//				
-//				
-//			break;
-//			case 8:
-//				
-//				break;
-//			case 9:
-//				System.out.println("You entered quit. Thank you for participating. Goodbye. ");
-//				break;
-//			default:
-//				System.out.println("That's not an option, Try again. ");
-//				break;
-//			}
-//		}
-//		scan.close();
-//		// TODO Auto-generated method stub
-//
-//	}
-//	}
 
-	
-	//public void MenuLoop{
-	//}
-	
-	public void MainMenu() {
-		System.out.println("--------------------------------");
-		System.out.println("1. List fleet");
-		System.out.println("2. Fly all jets");
-		System.out.println("3. View Fastest Jet");
-		System.out.println("4. View Jet with Longest Range");
-		System.out.println("5. Utilize Recon Scan");   //custom to me
-		System.out.println("6. Ready for Chase");		//custom to me
-		System.out.println("7. Add jet to Fleet");
-		System.out.println("8. Remove a jet from Fleet");
-		System.out.println("9. Quit");
-		System.out.println("--------------------------------");
+	public void launch() {
+		myAirField.readFromFile();
+		mainMenu();
+		scan.close();
 	}
-	
-	public void readFromFile(String fileName) {
-		try {
-			FileReader fr = new FileReader("jets.txt");
-			BufferedReader br = new BufferedReader(fr);
-			String line;
-			while ((line = br.readLine()) != null) {
-				String[] splitLine = line.split(",");
-				System.out.println(splitLine[1] + " " + splitLine[2]); //
+
+	public void mainMenu() {
+		int option = 0;
+		while (option != 9) {
+		System.out.println("-----------------------------------");
+		System.out.println("|1. List fleet                    |");
+		System.out.println("|2. Fly all jets                  |");
+		System.out.println("|3. View Fastest Jet              |");
+		System.out.println("|4. View Jet with Longest Range   |");
+		System.out.println("|5. Utilize Recon Scan            |"); // custom to me
+		System.out.println("|6. Weaponry Locked               |"); // custom to me
+		System.out.println("|7. Add jet to Fleet              |");
+		System.out.println("|8. Remove a jet from Fleet       |");
+		System.out.println("|9. Quit                          |");
+		System.out.println("-----------------------------------");
+			System.out.println("Please select an option: ");
+			option = scan.nextInt();
+			scan.nextLine();
+			switch (option) {
+			case 1:
+				listJets();
+				break;
+			case 2:
+				flyAllJets();
+				break;
+			case 3:
+				fastestJet();
+				break;
+			case 4:
+				longestRangeJet();
+				break;
+			case 5:
+				for (Jet jet : currentJets) {
+					if (jet instanceof Recon) {
+						System.out.println(jet.getModel());
+					((Recon) jet).Scanning();
+					}
+					}
+				break;
+			case 6:
+				for (Jet jet : currentJets) {
+				if (jet instanceof Fighter) {
+					System.out.println(jet.getModel());
+				((Fighter) jet).weaponryTargeted();
+				}
+				}
+				break;
+			case 7:
+				myAirField.addJetByUser();
+				break;
+			case 8:
+				System.out.println("You have selected to remove a Jet from the airfield inventory");
+				System.out.println("Please select from the current list");
+				System.out.println("1 - " currentJets(0).get(1).getModel());
+				break;
+			case 9:
+				System.out.println("You entered quit. Thank you for participating. Goodbye. ");
+				break;
+			default:
+				System.out.println("That's not an option, Try again. ");
+				break;
 			}
-			br.close();
-		} catch (FileNotFoundException e) {
-			System.err.println("Invalid filename: " + e.getMessage());
-			return;
-		} catch (IOException e) {
-			System.err.println("Problem while reading names.txt " + " : " + e.getMessage());
-			return;
 		}
 	}
-}
 
+	public void fastestJet() {
+		Jet fastestJet = currentJets.get(0);
+		// double MAX_SPEED = currentJets.get(0).getSpeed();
+		for (Jet j : currentJets) {
+			if (j.getSpeed() > fastestJet.getSpeed()) {
+				fastestJet = j;
+			}
+		}
+		System.out.println("The fastest jet is: \n" + fastestJet.toString());
+	}
+
+	public void listJets() {
+		for (Jet j : currentJets) {
+			j.toString();
+		}
+	}
+
+	public void longestRangeJet() {
+		Jet longestRangeJet = currentJets.get(0);
+		for (Jet j : currentJets) {
+			if (j.getRange() > longestRangeJet.getRange()) {
+				longestRangeJet = j;
+			}
+		}
+		System.out.println("The longest range jet is: \n" + longestRangeJet.toString());
+	}
+
+	public void flyAllJets() {
+		System.out.println("The jets have taken off.");
+		for (Jet jet : currentJets) {
+			jet.fly();
+			
+		}
+	}
+//	for (Jet jet : currentJets) {
+//		((Fighter)jet).getWeaponsLoadOut();
+//		jet.fly();
+//		note on instance of and interface.
+//	}
+	
+
+}

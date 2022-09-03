@@ -5,7 +5,19 @@ public class Recon extends Jet implements Collecting{
 	
 
 	
-	public Recon(String model, double speed, int range, long price, String sensors) {
+
+
+	
+
+	public String getSensors() {
+		return sensors;
+	}
+
+	public void setSensors(String sensors) {
+		this.sensors = sensors;
+	}
+
+	public Recon(String model, double speed, double range, double price, String sensors) {
 		super(model, speed, range, price);
 		this.sensors = sensors;
 		
@@ -13,7 +25,7 @@ public class Recon extends Jet implements Collecting{
 	
 	@Override
 	public void Scanning() {
-		// TODO Auto-generated method stub
+		System.out.println("Topographical imagery being collected");
 		
 	}
 

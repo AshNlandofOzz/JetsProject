@@ -86,7 +86,17 @@ public class JetsApplication {
 			case 8:
 				System.out.println("You have selected to remove a Jet from the airfield inventory");
 				System.out.println("Please select from the current list");
-				System.out.println("1 - " currentJets(0).get(1).getModel());
+				for (int i = 0; i < currentJets.size(); i ++) {
+					System.out.println(i + " - " + currentJets.get(i));
+				}
+				int userRemove = scan.nextInt();
+				scan.nextLine();
+				if (userRemove >= 0 && userRemove < currentJets.size()-1) {
+					currentJets.remove(userRemove);
+				}
+				if (userRemove > currentJets.size()) {
+					System.out.println("That is not a valid option. Try again");
+				}
 				break;
 			case 9:
 				System.out.println("You entered quit. Thank you for participating. Goodbye. ");
@@ -111,7 +121,7 @@ public class JetsApplication {
 
 	public void listJets() {
 		for (Jet j : currentJets) {
-			j.toString();
+			System.out.println(j.toString());
 		}
 	}
 

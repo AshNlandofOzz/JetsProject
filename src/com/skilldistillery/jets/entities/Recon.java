@@ -31,13 +31,14 @@ public class Recon extends Jet implements Collecting{
 
 	@Override
 	public void Processing() {
-		// TODO Auto-generated method stub
+		// This was not utilized during this exercise but the Application menu could 
+		// be expanded so the user can utilize other scanners from their aircraft 
 		
 	}
 
 	@Override
 	public void Relaying() {
-		// TODO Auto-generated method stub
+		// See above note, same principle applies.
 		
 	}
 

@@ -22,7 +22,8 @@ public class Fighter extends Jet implements BattleReady {
 	@Override
 	public void readyForChase() {
 		System.out.println("Coming to fullspeed and tracking target.");	
-	}
+	} //This was not used in this exercise but menu in application could 
+	//be expanded to use this when fighter are in flight
 
 	@Override
 	public void weaponryTargeted() {

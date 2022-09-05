@@ -7,6 +7,6 @@ public class TroopTransport extends Jet {
 		
 	}
 
-
+//This is my generic jet. The equivalent of the jet labeled ImplJet in the directions.
 		
 }

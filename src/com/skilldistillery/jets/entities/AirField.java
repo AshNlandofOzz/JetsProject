@@ -77,7 +77,7 @@ public class AirField {
 		scan.nextLine();
 		boolean validInput = false;
 		Jet userJet = null;
-		while ( !validInput) { //loop start 
+		while ( !validInput) { 
 		System.out.println("Please input type of aircraft by selecting from the menu below: ");
 		System.out.println("-----------------------------------");
 		System.out.println("|1. Fighter                       |");
@@ -104,13 +104,6 @@ public class AirField {
 		}
 		else {
 			System.out.println("that is not one of the 3 options. try again.");
-//			System.out.println("Please input type of aircraft by selecting from the menu below: ");
-//			System.out.println("-----------------------------------");
-//			System.out.println("|1. Fighter                       |");
-//			System.out.println("|2. Recon                         |");
-//			System.out.println("|3. Troop Transport               |");
-//			System.out.println("-----------------------------------");
-//			option = scan.nextInt();
 			}	
 		}
 		myAirfield.add(userJet);

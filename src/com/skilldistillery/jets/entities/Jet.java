@@ -51,11 +51,7 @@ public abstract class Jet {
 }
 	public Jet() {
 		
-	}
-
-
-
-	
+	}	
 
 	@Override
 	public String toString() {

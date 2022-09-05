@@ -1,9 +1,6 @@
 package com.skilldistillery.jets.entities;
 
 public class Fighter extends Jet implements BattleReady {
-
-
-	
 	private String weaponsLoadOut;
 
 	public Fighter(String model, double speed, double range, double price, String weaponsLoadOut) {

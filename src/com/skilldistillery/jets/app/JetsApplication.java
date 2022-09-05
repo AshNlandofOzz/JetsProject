@@ -42,8 +42,8 @@ public class JetsApplication {
 		System.out.println("|2. Fly all jets                  |");
 		System.out.println("|3. View Fastest Jet              |");
 		System.out.println("|4. View Jet with Longest Range   |");
-		System.out.println("|5. Utilize Recon Scan            |"); // custom to me
-		System.out.println("|6. Weaponry Locked               |"); // custom to me
+		System.out.println("|5. Utilize Recon Scan            |"); 
+		System.out.println("|6. Weaponry Locked               |"); 
 		System.out.println("|7. Add jet to Fleet              |");
 		System.out.println("|8. Remove a jet from Fleet       |");
 		System.out.println("|9. Quit                          |");
@@ -110,7 +110,6 @@ public class JetsApplication {
 
 	public void fastestJet() {
 		Jet fastestJet = currentJets.get(0);
-		// double MAX_SPEED = currentJets.get(0).getSpeed();
 		for (Jet j : currentJets) {
 			if (j.getSpeed() > fastestJet.getSpeed()) {
 				fastestJet = j;
@@ -142,11 +141,7 @@ public class JetsApplication {
 			
 		}
 	}
-//	for (Jet jet : currentJets) {
-//		((Fighter)jet).getWeaponsLoadOut();
-//		jet.fly();
-//		note on instance of and interface.
-//	}
+
 	
 
 }

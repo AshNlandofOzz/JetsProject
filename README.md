@@ -2,12 +2,12 @@
 For all the troops at our airbases overseas, it would be comforting for leadership to be able to quickly determine assets and capabilities. Behold, the spark for such a useful and timely system. No one wants to be operating in eastern Ukraine or the Middle east and be concerned that it will take several hours to ascertain the capabilities of aircraft on deck.
 
 This clever application allows the user to:
--Track inventory
--Receive status on takeoff and flight duration
--Add to the inventory
--Remove from the inventory
--Utilize scanning capabilities
--Utilize armaments
+Track inventory
+Receive status on takeoff and flight duration
+Add to the inventory
+Remove from the inventory
+Utilize scanning capabilities
+Utilize armaments
 
 This application has many future growth opportunities.
 
@@ -18,8 +18,8 @@ The positive side of this is I know this challenge has made me better. I do feel
 
 As a student those struggles add up and make me feel incapable, though I know that is a fleeting feeling that comes with riding down the rollercoaster.
 
-#Code Specific Notes
+# Code Specific Notes
 This code has room to grow. I added additional items to my interfaces thinking I would be able to get creative and incorporate them and do stretch goals. I just simply did not have the time to implement those items.
 
-#Technology used
+# Technology used
 I built this application and associated classes and interfaces in Eclipse. I used Atom to write out my README, and for reference materials I used google but also received great instruction from John during TA hours on Saturday.

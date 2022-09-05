@@ -64,8 +64,6 @@ public class AirField {
 	
 	public void addJetByUser() {
 		Scanner scan = new Scanner(System.in);
-		//System.out.println("Please input type of aircraft: TYPE IN Fighter, Troop Transport, or Recon.");
-		//String userInType = scan.nextLine();
 		System.out.print("Model: ");
 		String userInModel = scan.nextLine();
 		System.out.print("Speed: ");
@@ -77,6 +75,9 @@ public class AirField {
 		System.out.print("Price: ");
 		double userInPrice = scan.nextDouble();
 		scan.nextLine();
+		boolean validInput = false;
+		Jet userJet = null;
+		while ( !validInput) { //loop start 
 		System.out.println("Please input type of aircraft by selecting from the menu below: ");
 		System.out.println("-----------------------------------");
 		System.out.println("|1. Fighter                       |");
@@ -84,47 +85,35 @@ public class AirField {
 		System.out.println("|3. Troop Transport               |");
 		System.out.println("-----------------------------------");
 		int option = scan.nextInt();
-		Jet userJet = null;
 		scan.nextLine();
-		switch (option) {
-		case 1:
+		if (option == 1) {
 			System.out.println("Please enter whether weapons are air-air or air-sea by typing 'air-air' or 'air-sea'");
 			String userInWeapon = scan.nextLine();
 			userJet = new Fighter(userInModel, userInSpeed, userInRange, userInPrice, userInWeapon);
-			break;
-		case 2:
+			validInput = true;
+		}
+		if (option == 2) {
 			System.out.println("Please enter whether sensors are topographical or listening by typing 'topographical' or 'listening'");
 			String userInSensors = scan.nextLine();
 			userJet = new Recon(userInModel, userInSpeed, userInRange, userInPrice, userInSensors);
-			break;
-		case 3:
+			validInput = true;
+		} 
+		if (option == 3) {
 			userJet = new TroopTransport(userInModel, userInSpeed, userInRange, userInPrice);
-			break;}
-		//Jet userJet = null;
-		//while (userInType != null) {
-//		if (userInType.equalsIgnoreCase("fighter")) {
-//			System.out.println("Please enter whether weapons are air-air or air-sea by typing 'air-air' or 'air-sea'");
-//			String userInWeapon = scan.nextLine();
-//			userJet = new Fighter(userInModel, userInSpeed, userInRange, userInPrice, userInWeapon);
-//		}
-//		if (userInType.equalsIgnoreCase("recon")) {
-//			System.out.println("Please enter whether sensors are topographical or listening by typing 'topographical' or 'listening'");
-//			String userInSensors = scan.nextLine();
-//			userJet = new Recon(userInModel, userInSpeed, userInRange, userInPrice, userInSensors);
-//		}
-//		if (userInType.equalsIgnoreCase("troop transport")) {
-//			userJet = new TroopTransport(userInModel, userInSpeed, userInRange, userInPrice);
-//		}
-		//else {
-//			System.out.println("That is not a valid jet type. Try again:");
-//			System.out.println("Please input type of aircraft: TYPE IN Fighter, Troop Transport, or Recon.");
-//			userInType = scan.nextLine();
-//		}
-		//}
-		
+			validInput = true;
+		}
+		else {
+			System.out.println("that is not one of the 3 options. try again.");
+//			System.out.println("Please input type of aircraft by selecting from the menu below: ");
+//			System.out.println("-----------------------------------");
+//			System.out.println("|1. Fighter                       |");
+//			System.out.println("|2. Recon                         |");
+//			System.out.println("|3. Troop Transport               |");
+//			System.out.println("-----------------------------------");
+//			option = scan.nextInt();
+			}	
+		}
 		myAirfield.add(userJet);
 	}
 }
-//add
-//remove in here?
-//this interacts with JetsApplication
+
